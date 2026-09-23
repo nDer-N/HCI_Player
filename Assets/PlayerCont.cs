@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerCont : MonoBehaviour
@@ -7,19 +9,29 @@ public class PlayerCont : MonoBehaviour
     public float fuerzaSalto = 7f;
     
     private Rigidbody2D rb;
-    private bool enElSuelo = true;
+    private bool floor = true;
+
+    
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
     }
 
     void Update()
     {
-       
+        
+
+          
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Suelo"))
+        {
+            floor = true;
+            Debug.Log(floor);
+        }
     }
 }
