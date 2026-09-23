@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerCont : MonoBehaviour
 {
-    public float velocidad = 8f;
-    public float fuerzaSalto = 7f;
+    public float velocity = 8f;
+    public float Jump = 7f;
     
     private Rigidbody2D rb;
     private bool floor = true;
@@ -21,7 +21,8 @@ public class PlayerCont : MonoBehaviour
 
     void Update()
     {
-        
+        float movement = Input.GetAxis("Horizontal");
+        rb.linearVelocity = new Vector3(movement*velocity, rb.linearVelocity.y, 0 );
 
           
     }
